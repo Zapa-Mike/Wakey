@@ -11,7 +11,7 @@ import SwiftUI
 struct WakeyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AlarmListView()
         }
     }
 }
