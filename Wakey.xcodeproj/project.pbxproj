@@ -11,6 +11,7 @@
 		3F10AF182672136900A2F028 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10AF172672136900A2F028 /* Alarm.swift */; };
 		3F10AF1D2672158A00A2F028 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10AF1C2672158A00A2F028 /* Mission.swift */; };
 		3F10AF232672169600A2F028 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10AF222672169600A2F028 /* AlarmViewModel.swift */; };
+		3F10AF2F2672416C00A2F028 /* Ringtone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10AF2E2672416C00A2F028 /* Ringtone.swift */; };
 		3F2296CB266D1DA40097D156 /* WakeyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2296CA266D1DA40097D156 /* WakeyApp.swift */; };
 		3F2296CF266D1DA70097D156 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F2296CE266D1DA70097D156 /* Assets.xcassets */; };
 		3F2296D2266D1DA70097D156 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F2296D1266D1DA70097D156 /* Preview Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		3F10AF172672136900A2F028 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		3F10AF1C2672158A00A2F028 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		3F10AF222672169600A2F028 /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
+		3F10AF2E2672416C00A2F028 /* Ringtone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ringtone.swift; sourceTree = "<group>"; };
 		3F2296C7266D1DA40097D156 /* Wakey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wakey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2296CA266D1DA40097D156 /* WakeyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakeyApp.swift; sourceTree = "<group>"; };
 		3F2296CE266D1DA70097D156 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				3F10AF1226720BAE00A2F028 /* NavigateToQuiz.swift */,
 				3F10AF172672136900A2F028 /* Alarm.swift */,
 				3F10AF1C2672158A00A2F028 /* Mission.swift */,
+				3F10AF2E2672416C00A2F028 /* Ringtone.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				3F10AF1326720BAE00A2F028 /* NavigateToQuiz.swift in Sources */,
 				3F10AF1D2672158A00A2F028 /* Mission.swift in Sources */,
 				3FC03EF5266E99B2001CADD3 /* AlarmHandler.swift in Sources */,
+				3F10AF2F2672416C00A2F028 /* Ringtone.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

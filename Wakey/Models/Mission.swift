@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Mission {
-    case quiz
-    case typing
+enum Mission: String {
+    case quiz = "Quiz"
+    case typing = "Typing"
 }

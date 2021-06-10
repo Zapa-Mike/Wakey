@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
-
 struct AlarmListView: View {
     @EnvironmentObject var navigateToQuiz : NavigateToQuiz
+    @State var sss : Bool = true
+    
     init() {
         self.askForPermission()
     }
@@ -16,36 +17,45 @@ struct AlarmListView: View {
         NavigationView {
             VStack{
                 NavigationLink(destination: QuizMissionView(), isActive: $navigateToQuiz.navigate, label: {EmptyView()})
-            List {
-                NavigationLink(destination: CreateOrEditAlarmView()) {
-                    Text("8:30")
+                List {
+                    HStack {
+                        Text("8:30").font(.system(size: 23)).padding(10)
+                        Toggle("", isOn: $sss).font(.system(size: 23))
+                        NavigationLink(destination: CreateOrEditAlarmView()) {
+                            EmptyView()
+                        }.hidden().frame(width: 0)
+                    }
+                    HStack {
+                        Text("8:30").font(.system(size: 23)).padding(10)
+                        Toggle("", isOn: $sss).font(.system(size: 23))
+                        NavigationLink(destination: CreateOrEditAlarmView()) {
+                            EmptyView()
+                        }.hidden().frame(width: 0)
+                    }
+                    HStack {
+                        Text("8:30").font(.system(size: 23)).padding(10)
+                        Toggle("", isOn: $sss).font(.system(size: 23))
+                        NavigationLink(destination: CreateOrEditAlarmView()) {
+                            EmptyView()
+                        }.hidden().frame(width: 0)
+                    }
                 }
-                NavigationLink(destination: CreateOrEditAlarmView()) {
-                    Text("8:30")
-                }
-                NavigationLink(destination: CreateOrEditAlarmView()) {
-                    Text("9:30")
-                }
-                NavigationLink(destination: CreateOrEditAlarmView()) {
-                    Text("10:30")
-                }
+                .listStyle(PlainListStyle())
+                .navigationBarTitle("Alarm List")
+                .navigationBarItems(
+                    leading:
+                        NavigationLink(
+                            destination: SettingsView()) {
+                            Text("Settings")
+                        }
+                    ,
+                    trailing:
+                        NavigationLink(
+                            destination: CreateOrEditAlarmView()) {
+                            Text("Create")
+                        }
+                )
             }
-            .listStyle(PlainListStyle())
-            .navigationBarTitle("Alarm List")
-            .navigationBarItems(
-                leading:
-                    NavigationLink(
-                        destination: SettingsView()) {
-                        Text("Settings")
-                    }
-                ,
-                trailing:
-                    NavigationLink(
-                        destination: CreateOrEditAlarmView()) {
-                        Text("Create")
-                    }
-            )
-        }
         }
     }
     func askForPermission() {

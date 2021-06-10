@@ -15,10 +15,10 @@ class AlarmHandler {
         center.requestAuthorization(options: [.alert, .badge, .sound]) {
             granted, error in
             if granted {
-                print("harsh")
+                print("access granted")
             }
             else {
-                print("sad")
+                print("access denied")
             }
         }
     }
@@ -29,8 +29,8 @@ class AlarmHandler {
         content.title = "Wakey!"
         content.body = "Wake up, motherfucker!"
         content.categoryIdentifier = "alarm"
-        content.userInfo = ["sad": "harsh"]
-        content.sound = .criticalSoundNamed( UNNotificationSoundName(rawValue: "harshness.mp3"))
+        content.userInfo = ["mission": alarm.mission.rawValue]
+        content.sound = .criticalSoundNamed( UNNotificationSoundName(rawValue: alarm.ringtone.path))
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
         

@@ -10,19 +10,39 @@ import SwiftUI
 struct CreateOrEditAlarmView: View {
     @EnvironmentObject var viewModel : AlarmViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     var body: some View {
-            VStack {
-                TextField("Title:", text: $viewModel.alarm.title)
-                DatePicker("harsh", selection: $viewModel.alarm.scheduledTime).padding()
-                Button(action: {
-                    viewModel.scheduleAlarm()
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("Schedule alarm")
-                }
+        VStack {
+            DatePicker("", selection: $viewModel.alarm.scheduledTime, in: Date()...)
+                .labelsHidden()
+                .datePickerStyle(WheelDatePickerStyle())
+            TextField("Your Alarm Name", text: $viewModel.alarm.title).multilineTextAlignment(.center).font(.system(size: 23))
+            
+            List {
+                NavigationLink(destination: MissionSelectionView()) {
+                    Text("Mission: \(viewModel.alarm.mission.rawValue)")
+                }.font(.system(size: 23)).padding(10)
+                NavigationLink(destination: RingtoneSelectionView()) {
+                    Text("Ringtone: \(viewModel.alarm.ringtone.title)")
+                }.font(.system(size: 23)).padding(10)
+                Toggle("Wake up Wisdom", isOn: $viewModel.alarm.wakeUpWisdom).font(.system(size: 23)).padding(10)
             }
-            .navigationBarTitle("Create Alarm")
+            .listStyle(PlainListStyle())
+
+            if(viewModel.timeToRing.minute! > 0 || viewModel.timeToRing.hour! > 0) {
+                Text("Rings in \(viewModel.timeToRing.hour!) hour(s) and \(viewModel.timeToRing.minute!) minute(s)").frame(maxWidth: .infinity, alignment: .center).font(.system(size: 20))            .padding(.bottom, 10)
+                
+            }
+            Spacer()
+            
+            Button(action: {
+                viewModel.scheduleAlarm()
+                self.presentationMode.wrappedValue.dismiss()
+            }) {
+                Text("Schedule alarm")
+            }
+        }
+        .navigationBarTitle("Create Alarm")
     }
     
 }
@@ -30,5 +50,7 @@ struct CreateOrEditAlarmView: View {
 struct CreateOrEditAlarmView_Previews: PreviewProvider {
     static var previews: some View {
         CreateOrEditAlarmView()
+            .environmentObject(AlarmViewModel())
+        
     }
 }
