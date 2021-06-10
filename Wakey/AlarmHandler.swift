@@ -23,10 +23,8 @@ class AlarmHandler {
         }
     }
     
-    static func scheduleAlarm() {
-        print("im in")
-         let center = UNUserNotificationCenter.current()
-         
+    func scheduleAlarm(alarm: Alarm) {
+        let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
         content.title = "Wakey!"
         content.body = "Wake up, motherfucker!"
@@ -34,7 +32,7 @@ class AlarmHandler {
         content.userInfo = ["sad": "harsh"]
         content.sound = .criticalSoundNamed( UNNotificationSoundName(rawValue: "harshness.mp3"))
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         

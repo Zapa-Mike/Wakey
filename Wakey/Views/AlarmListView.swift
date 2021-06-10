@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct AlarmListView: View {
+    @EnvironmentObject var navigateToQuiz : NavigateToQuiz
     init() {
         self.askForPermission()
     }
     var body: some View {
         NavigationView {
+            VStack{
+                NavigationLink(destination: QuizMissionView(), isActive: $navigateToQuiz.navigate, label: {EmptyView()})
             List {
                 NavigationLink(destination: CreateOrEditAlarmView()) {
                     Text("8:30")
@@ -31,18 +34,18 @@ struct AlarmListView: View {
             .navigationBarTitle("Alarm List")
             .navigationBarItems(
                 leading:
-                        NavigationLink(
-                            destination: SettingsView()) {
-                                        Text("Settings")
-                                    }
+                    NavigationLink(
+                        destination: SettingsView()) {
+                        Text("Settings")
+                    }
                 ,
                 trailing:
-                        NavigationLink(
-                            destination: CreateOrEditAlarmView()) {
-                                        Text("Create")
-                                    }
+                    NavigationLink(
+                        destination: CreateOrEditAlarmView()) {
+                        Text("Create")
+                    }
             )
-            
+        }
         }
     }
     func askForPermission() {

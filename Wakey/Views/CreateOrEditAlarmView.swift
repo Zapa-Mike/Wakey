@@ -8,18 +8,23 @@
 import SwiftUI
 
 struct CreateOrEditAlarmView: View {
+    @EnvironmentObject var viewModel : AlarmViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        Button(action: {
-            self.scheduleAlarm()
-        }) {
-            Text("Schedule alarm")
-        }
+            VStack {
+                TextField("Title:", text: $viewModel.alarm.title)
+                DatePicker("harsh", selection: $viewModel.alarm.scheduledTime).padding()
+                Button(action: {
+                    viewModel.scheduleAlarm()
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Schedule alarm")
+                }
+            }
+            .navigationBarTitle("Create Alarm")
     }
     
-    func scheduleAlarm() {
-        AlarmHandler.scheduleAlarm()
-    }
 }
 
 struct CreateOrEditAlarmView_Previews: PreviewProvider {
