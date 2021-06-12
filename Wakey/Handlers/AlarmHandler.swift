@@ -9,7 +9,7 @@ import Foundation
 import UserNotifications
 
 class AlarmHandler {
-   static func registerPermission() {
+    static func registerPermission() {
         let center = UNUserNotificationCenter.current()
         
         center.requestAuthorization(options: [.alert, .badge, .sound]) {
@@ -32,10 +32,12 @@ class AlarmHandler {
         content.userInfo = ["mission": alarm.mission.rawValue]
         content.sound = .criticalSoundNamed( UNNotificationSoundName(rawValue: alarm.ringtone.path))
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let date = Calendar.current.dateComponents([.day, .hour, .minute], from: alarm.scheduledTime)
         
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: alarm.id!.uuidString, content: content, trigger: trigger)
         
         center.add(request)
-     }
+    }
 }

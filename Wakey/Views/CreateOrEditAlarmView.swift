@@ -28,23 +28,27 @@ struct CreateOrEditAlarmView: View {
                 Toggle("Wake up Wisdom", isOn: $viewModel.alarm.wakeUpWisdom).font(.system(size: 23)).padding(10)
             }
             .listStyle(PlainListStyle())
-
-            if(viewModel.timeToRing.minute! > 0 || viewModel.timeToRing.hour! > 0) {
-                Text("Rings in \(viewModel.timeToRing.hour!) hour(s) and \(viewModel.timeToRing.minute!) minute(s)").frame(maxWidth: .infinity, alignment: .center).font(.system(size: 20))            .padding(.bottom, 10)
-                
-            }
-            Spacer()
             
-            Button(action: {
-                viewModel.scheduleAlarm()
-                self.presentationMode.wrappedValue.dismiss()
-            }) {
-                Text("Schedule alarm")
+            if(viewModel.timeToRing.minute! > 0 || viewModel.timeToRing.hour! > 0 || viewModel.timeToRing.day! > 0) {
+                Text("Rings in "
+                        + ((viewModel.timeToRing.day! > 0) ? "\(viewModel.timeToRing.day!) day(s) ": "")
+                        + ((viewModel.timeToRing.hour! > 0) ? "\(viewModel.timeToRing.hour!) hour(s) ": "")
+                        + ((viewModel.timeToRing.minute! > 0) ? "\(viewModel.timeToRing.minute!) minute(s)": "")).frame(maxWidth: .infinity, alignment: .center).font(.system(size: 15))            .padding(.bottom, 10)
             }
         }
+        Spacer()
+        
+        Button(action: {
+            DispatchQueue.main.async {
+                viewModel.addAlarm()
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        }) {
+            Text("Schedule alarm")
+        }
+        
         .navigationBarTitle("Create Alarm")
     }
-    
 }
 
 struct CreateOrEditAlarmView_Previews: PreviewProvider {

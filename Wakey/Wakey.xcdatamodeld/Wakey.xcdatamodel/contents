@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AlarmEntity" representedClassName="AlarmEntity" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="mission" optional="YES" attributeType="String"/>
+        <attribute name="repeatAlarm" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="ringtone" optional="YES" attributeType="String"/>
+        <attribute name="scheduledTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="wakeUpWisdom" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="RingtoneEntity" representedClassName="RingtoneEntity" syncable="YES">
+        <attribute name="path" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="AlarmEntity" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="RingtoneEntity" positionX="-45" positionY="54" width="128" height="59"/>
+    </elements>
+</model>

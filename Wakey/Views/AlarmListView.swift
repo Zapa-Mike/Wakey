@@ -5,59 +5,56 @@
 //  Created by Student on 06.06.21.
 //
 
+
 import SwiftUI
 struct AlarmListView: View {
     @EnvironmentObject var navigateToQuiz : NavigateToQuiz
+    @EnvironmentObject var viewModel : AlarmViewModel
     @State var sss : Bool = true
     
     init() {
         self.askForPermission()
     }
+    
     var body: some View {
         NavigationView {
             VStack{
+                if(viewModel.alarmData.count < 1) {
+                    Text("You have no alarms").padding()
+                }
                 NavigationLink(destination: QuizMissionView(), isActive: $navigateToQuiz.navigate, label: {EmptyView()})
                 List {
-                    HStack {
-                        Text("8:30").font(.system(size: 23)).padding(10)
-                        Toggle("", isOn: $sss).font(.system(size: 23))
-                        NavigationLink(destination: CreateOrEditAlarmView()) {
-                            EmptyView()
-                        }.hidden().frame(width: 0)
+                    ForEach(viewModel.alarmData) {alarm in
+                        HStack {
+                            VStack {
+                                Text(alarm.scheduledTime!, style: .time).font(.system(size: 25)).padding(5)
+                                Text(alarm.scheduledTime!, style: .date).font(.system(size: 10))
+                            }
+                            Toggle("", isOn: $sss).font(.system(size: 23))
+                            NavigationLink(
+                                destination:
+                                    CreateOrEditAlarmView()) {
+                                EmptyView()
+                            }.hidden().frame(width: 0)
+                        }
                     }
-                    HStack {
-                        Text("8:30").font(.system(size: 23)).padding(10)
-                        Toggle("", isOn: $sss).font(.system(size: 23))
-                        NavigationLink(destination: CreateOrEditAlarmView()) {
-                            EmptyView()
-                        }.hidden().frame(width: 0)
-                    }
-                    HStack {
-                        Text("8:30").font(.system(size: 23)).padding(10)
-                        Toggle("", isOn: $sss).font(.system(size: 23))
-                        NavigationLink(destination: CreateOrEditAlarmView()) {
-                            EmptyView()
-                        }.hidden().frame(width: 0)
-                    }
+                    .onDelete(perform: viewModel.deleteAlarm)
+            }
                 }
                 .listStyle(PlainListStyle())
                 .navigationBarTitle("Alarm List")
                 .navigationBarItems(
                     leading:
-                        NavigationLink(
-                            destination: SettingsView()) {
-                            Text("Settings")
-                        }
+                        EditButton()
                     ,
                     trailing:
                         NavigationLink(
                             destination: CreateOrEditAlarmView()) {
-                            Text("Create")
+                            Image(systemName: "plus")
                         }
                 )
             }
         }
-    }
     func askForPermission() {
         AlarmHandler.registerPermission()
     }

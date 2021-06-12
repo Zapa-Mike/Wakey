@@ -8,6 +8,7 @@
 import Foundation
 
 struct Alarm {
+    var id: UUID?
     var title: String
     var repeatAlarm: Bool
     var wakeUpWisdom: Bool

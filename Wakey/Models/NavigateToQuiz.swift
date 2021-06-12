@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 final class NavigateToQuiz : ObservableObject {
     @Published var navigate = false
 }
