@@ -10,12 +10,7 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="wakeUpWisdom" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
-    <entity name="RingtoneEntity" representedClassName="RingtoneEntity" syncable="YES">
-        <attribute name="path" optional="YES" attributeType="String"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
-    </entity>
     <elements>
         <element name="AlarmEntity" positionX="-63" positionY="-18" width="128" height="149"/>
-        <element name="RingtoneEntity" positionX="-45" positionY="54" width="128" height="59"/>
     </elements>
 </model>

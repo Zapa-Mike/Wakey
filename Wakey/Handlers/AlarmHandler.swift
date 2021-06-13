@@ -9,6 +9,7 @@ import Foundation
 import UserNotifications
 
 class AlarmHandler {
+    let center = UNUserNotificationCenter.current()
     static func registerPermission() {
         let center = UNUserNotificationCenter.current()
         
@@ -24,13 +25,13 @@ class AlarmHandler {
     }
     
     func scheduleAlarm(alarm: Alarm) {
-        let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
         content.title = "Wakey!"
         content.body = "Wake up, motherfucker!"
         content.categoryIdentifier = "alarm"
         content.userInfo = ["mission": alarm.mission.rawValue]
-        content.sound = .criticalSoundNamed( UNNotificationSoundName(rawValue: alarm.ringtone.path))
+        
+        content.sound = .criticalSoundNamed( UNNotificationSoundName(rawValue: resolvePath(alarm: alarm)))
         
         let date = Calendar.current.dateComponents([.day, .hour, .minute], from: alarm.scheduledTime)
         
@@ -38,6 +39,23 @@ class AlarmHandler {
         
         let request = UNNotificationRequest(identifier: alarm.id!.uuidString, content: content, trigger: trigger)
         
-        center.add(request)
+        self.center.add(request)
+    }
+    
+    func resolvePath(alarm: Alarm) -> String {
+        let index = Ringtones.ringtone.firstIndex(where: { $0.title == alarm.ringtone })
+        return Ringtones.ringtone[index!].path
+    }
+    
+    func removeAlarm(alarmIdentifier: String) {
+        self.center.getPendingNotificationRequests { (notificationRequests) in
+           var identifiers: [String] = []
+           for notification:UNNotificationRequest in notificationRequests {
+               if notification.identifier == alarmIdentifier {
+                  identifiers.append(notification.identifier)
+               }
+           }
+            self.center.removePendingNotificationRequests(withIdentifiers: identifiers)
+        }
     }
 }

@@ -23,7 +23,7 @@ struct CreateOrEditAlarmView: View {
                     Text("Mission: \(viewModel.alarm.mission.rawValue)")
                 }.font(.system(size: 23)).padding(10)
                 NavigationLink(destination: RingtoneSelectionView()) {
-                    Text("Ringtone: \(viewModel.alarm.ringtone.title)")
+                    Text("Ringtone: \(viewModel.alarm.ringtone)")
                 }.font(.system(size: 23)).padding(10)
                 Toggle("Wake up Wisdom", isOn: $viewModel.alarm.wakeUpWisdom).font(.system(size: 23)).padding(10)
             }

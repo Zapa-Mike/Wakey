@@ -2,7 +2,7 @@
 //  AlarmEntity+CoreDataProperties.swift
 //  Wakey
 //
-//  Created by Student on 12.06.21.
+//  Created by Student on 13.06.21.
 //
 //
 
@@ -16,6 +16,7 @@ extension AlarmEntity {
         return NSFetchRequest<AlarmEntity>(entityName: "AlarmEntity")
     }
 
+    @NSManaged public var id: UUID?
     @NSManaged public var isActive: Bool
     @NSManaged public var mission: String?
     @NSManaged public var repeatAlarm: Bool
@@ -23,7 +24,6 @@ extension AlarmEntity {
     @NSManaged public var scheduledTime: Date?
     @NSManaged public var title: String?
     @NSManaged public var wakeUpWisdom: Bool
-    @NSManaged public var id: UUID?
 
 }
 

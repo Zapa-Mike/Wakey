@@ -70,6 +70,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
   ) {
     navigateToQuiz.navigate = true
     // 1
+    print(response)
     let userInfo = response.notification.request.content.userInfo
     
     
@@ -88,6 +89,7 @@ struct WakeyApp: App {
             AlarmListView()
                 .environmentObject(appDelegate.navigateToQuiz)
                 .environmentObject(AlarmViewModel())
+                .environmentObject(QuizViewModel())
         }
     }
 }

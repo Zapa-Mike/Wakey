@@ -13,6 +13,6 @@ struct Alarm {
     var repeatAlarm: Bool
     var wakeUpWisdom: Bool
     var scheduledTime: Date
-    var mission: Mission
-    var ringtone: Ringtone
+    var mission: MissionType
+    var ringtone: String
 }

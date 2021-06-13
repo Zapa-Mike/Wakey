@@ -11,7 +11,14 @@
 		3F10AF182672136900A2F028 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10AF172672136900A2F028 /* Alarm.swift */; };
 		3F10AF1D2672158A00A2F028 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10AF1C2672158A00A2F028 /* Mission.swift */; };
 		3F10AF232672169600A2F028 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10AF222672169600A2F028 /* AlarmViewModel.swift */; };
-		3F10AF2F2672416C00A2F028 /* Ringtone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10AF2E2672416C00A2F028 /* Ringtone.swift */; };
+		3F202604267615BB000553BE /* RIngtones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F202603267615BB000553BE /* RIngtones.swift */; };
+		3F2026092676196C000553BE /* veryloudairhorn1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F2026082676196C000553BE /* veryloudairhorn1.mp3 */; };
+		3F20261226762E66000553BE /* Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20261126762E66000553BE /* Missions.swift */; };
+		3F20261726763221000553BE /* SubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20261626763221000553BE /* SubtitleView.swift */; };
+		3F20261C2676349A000553BE /* Ringtone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20261B2676349A000553BE /* Ringtone.swift */; };
+		3F20262126763FFD000553BE /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20262026763FFD000553BE /* QuizViewModel.swift */; };
+		3F20262626764778000553BE /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20262526764778000553BE /* QuizQuestion.swift */; };
+		3F20262B267647F9000553BE /* QuizQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20262A267647F9000553BE /* QuizQuestions.swift */; };
 		3F2296CB266D1DA40097D156 /* WakeyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2296CA266D1DA40097D156 /* WakeyApp.swift */; };
 		3F2296CF266D1DA70097D156 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F2296CE266D1DA70097D156 /* Assets.xcassets */; };
 		3F2296D2266D1DA70097D156 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F2296D1266D1DA70097D156 /* Preview Assets.xcassets */; };
@@ -29,8 +36,6 @@
 		3F3864492673C2B700C9D285 /* Wakey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F3864472673C2B700C9D285 /* Wakey.xcdatamodeld */; };
 		3F3864962673E62600C9D285 /* AlarmEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3864942673E62600C9D285 /* AlarmEntity+CoreDataClass.swift */; };
 		3F3864972673E62600C9D285 /* AlarmEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3864952673E62600C9D285 /* AlarmEntity+CoreDataProperties.swift */; };
-		3F38649D2673EEA900C9D285 /* RingtoneEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38649B2673EEA900C9D285 /* RingtoneEntity+CoreDataClass.swift */; };
-		3F38649E2673EEA900C9D285 /* RingtoneEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38649C2673EEA900C9D285 /* RingtoneEntity+CoreDataProperties.swift */; };
 		3FC03EF5266E99B2001CADD3 /* AlarmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC03EF4266E99B2001CADD3 /* AlarmHandler.swift */; };
 		3FC03F0E266EAD6F001CADD3 /* harshness.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FC03F0D266EAD6F001CADD3 /* harshness.mp3 */; };
 /* End PBXBuildFile section */
@@ -57,7 +62,14 @@
 		3F10AF172672136900A2F028 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		3F10AF1C2672158A00A2F028 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		3F10AF222672169600A2F028 /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
-		3F10AF2E2672416C00A2F028 /* Ringtone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ringtone.swift; sourceTree = "<group>"; };
+		3F202603267615BB000553BE /* RIngtones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RIngtones.swift; sourceTree = "<group>"; };
+		3F2026082676196C000553BE /* veryloudairhorn1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = veryloudairhorn1.mp3; path = ../../veryloudairhorn1.mp3; sourceTree = "<group>"; };
+		3F20261126762E66000553BE /* Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missions.swift; sourceTree = "<group>"; };
+		3F20261626763221000553BE /* SubtitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleView.swift; sourceTree = "<group>"; };
+		3F20261B2676349A000553BE /* Ringtone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ringtone.swift; sourceTree = "<group>"; };
+		3F20262026763FFD000553BE /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
+		3F20262526764778000553BE /* QuizQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestion.swift; sourceTree = "<group>"; };
+		3F20262A267647F9000553BE /* QuizQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestions.swift; sourceTree = "<group>"; };
 		3F2296C7266D1DA40097D156 /* Wakey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wakey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2296CA266D1DA40097D156 /* WakeyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakeyApp.swift; sourceTree = "<group>"; };
 		3F2296CE266D1DA70097D156 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,8 +93,6 @@
 		3F3864482673C2B700C9D285 /* Wakey.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wakey.xcdatamodel; sourceTree = "<group>"; };
 		3F3864942673E62600C9D285 /* AlarmEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlarmEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3F3864952673E62600C9D285 /* AlarmEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlarmEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3F38649B2673EEA900C9D285 /* RingtoneEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RingtoneEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3F38649C2673EEA900C9D285 /* RingtoneEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RingtoneEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3FC03EF4266E99B2001CADD3 /* AlarmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmHandler.swift; sourceTree = "<group>"; };
 		3FC03F0D266EAD6F001CADD3 /* harshness.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = harshness.mp3; path = ../../../Downloads/harshness.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				3F10AF222672169600A2F028 /* AlarmViewModel.swift */,
+				3F20262026763FFD000553BE /* QuizViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -128,11 +139,19 @@
 			path = Handlers;
 			sourceTree = "<group>";
 		};
+		3F20261026762E4D000553BE /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				3F202603267615BB000553BE /* RIngtones.swift */,
+				3F20261126762E66000553BE /* Missions.swift */,
+				3F20262A267647F9000553BE /* QuizQuestions.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		3F2296BE266D1DA40097D156 = {
 			isa = PBXGroup;
 			children = (
-				3F38649B2673EEA900C9D285 /* RingtoneEntity+CoreDataClass.swift */,
-				3F38649C2673EEA900C9D285 /* RingtoneEntity+CoreDataProperties.swift */,
 				3F3864942673E62600C9D285 /* AlarmEntity+CoreDataClass.swift */,
 				3F3864952673E62600C9D285 /* AlarmEntity+CoreDataProperties.swift */,
 				3F2296C9266D1DA40097D156 /* Wakey */,
@@ -155,12 +174,14 @@
 		3F2296C9266D1DA40097D156 /* Wakey */ = {
 			isa = PBXGroup;
 			children = (
+				3F20261026762E4D000553BE /* Constants */,
 				3F10AF27267219CC00A2F028 /* Handlers */,
 				3F10AF212672160300A2F028 /* ViewModel */,
 				3FC03EF0266E994E001CADD3 /* Views */,
 				3FC03EEF266E993E001CADD3 /* Models */,
 				3F2296CA266D1DA40097D156 /* WakeyApp.swift */,
 				3F2296CE266D1DA70097D156 /* Assets.xcassets */,
+				3F2026082676196C000553BE /* veryloudairhorn1.mp3 */,
 				3FC03F0D266EAD6F001CADD3 /* harshness.mp3 */,
 				3F2296D3266D1DA70097D156 /* Info.plist */,
 				3F2296D0266D1DA70097D156 /* Preview Content */,
@@ -211,7 +232,8 @@
 				3F10AF1226720BAE00A2F028 /* NavigateToQuiz.swift */,
 				3F10AF172672136900A2F028 /* Alarm.swift */,
 				3F10AF1C2672158A00A2F028 /* Mission.swift */,
-				3F10AF2E2672416C00A2F028 /* Ringtone.swift */,
+				3F20261B2676349A000553BE /* Ringtone.swift */,
+				3F20262526764778000553BE /* QuizQuestion.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -226,6 +248,7 @@
 				3F22970C266D1EC00097D156 /* RingtoneSelectionView.swift */,
 				3F229716266D1F000097D156 /* DailyMotivationView.swift */,
 				3F229723266D1FEF0097D156 /* MissionViews */,
+				3F20261626763221000553BE /* SubtitleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -333,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2026092676196C000553BE /* veryloudairhorn1.mp3 in Resources */,
 				3F2296D2266D1DA70097D156 /* Preview Assets.xcassets in Resources */,
 				3F2296CF266D1DA70097D156 /* Assets.xcassets in Resources */,
 				3FC03F0E266EAD6F001CADD3 /* harshness.mp3 in Resources */,
@@ -360,10 +384,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F38649D2673EEA900C9D285 /* RingtoneEntity+CoreDataClass.swift in Sources */,
 				3F229717266D1F000097D156 /* DailyMotivationView.swift in Sources */,
+				3F20262126763FFD000553BE /* QuizViewModel.swift in Sources */,
+				3F20262B267647F9000553BE /* QuizQuestions.swift in Sources */,
 				3F22970D266D1EC00097D156 /* RingtoneSelectionView.swift in Sources */,
+				3F20261226762E66000553BE /* Missions.swift in Sources */,
+				3F20261C2676349A000553BE /* Ringtone.swift in Sources */,
 				3F22971C266D1F4C0097D156 /* TypingMissionView.swift in Sources */,
+				3F20262626764778000553BE /* QuizQuestion.swift in Sources */,
 				3F229703266D1E0A0097D156 /* SettingsView.swift in Sources */,
 				3F3864962673E62600C9D285 /* AlarmEntity+CoreDataClass.swift in Sources */,
 				3F10AF232672169600A2F028 /* AlarmViewModel.swift in Sources */,
@@ -372,15 +400,15 @@
 				3F229708266D1EAD0097D156 /* MissionSelectionView.swift in Sources */,
 				3F2296FE266D1DFE0097D156 /* CreateOrEditAlarmView.swift in Sources */,
 				3F229712266D1EE30097D156 /* QuizMissionView.swift in Sources */,
+				3F202604267615BB000553BE /* RIngtones.swift in Sources */,
 				3F10AF182672136900A2F028 /* Alarm.swift in Sources */,
 				3F2296CB266D1DA40097D156 /* WakeyApp.swift in Sources */,
 				3F2296F9266D1DE20097D156 /* AlarmListView.swift in Sources */,
 				3F10AF1326720BAE00A2F028 /* NavigateToQuiz.swift in Sources */,
 				3F3864972673E62600C9D285 /* AlarmEntity+CoreDataProperties.swift in Sources */,
 				3F10AF1D2672158A00A2F028 /* Mission.swift in Sources */,
+				3F20261726763221000553BE /* SubtitleView.swift in Sources */,
 				3FC03EF5266E99B2001CADD3 /* AlarmHandler.swift in Sources */,
-				3F10AF2F2672416C00A2F028 /* Ringtone.swift in Sources */,
-				3F38649E2673EEA900C9D285 /* RingtoneEntity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

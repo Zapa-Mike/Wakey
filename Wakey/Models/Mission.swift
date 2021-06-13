@@ -7,7 +7,13 @@
 
 import Foundation
 
-enum Mission: String {
+struct Mission {
+    var description: String
+    var type: MissionType
+}
+
+enum MissionType: String {
     case quiz = "Quiz"
     case typing = "Typing"
 }
+

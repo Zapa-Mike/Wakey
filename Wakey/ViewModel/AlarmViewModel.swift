@@ -11,7 +11,7 @@ final class AlarmViewModel : ObservableObject {
     let context = AppDelegate().persistentContainer.viewContext
     let handler = AlarmHandler()
     @Published var alarmData: [AlarmEntity] = []
-
+    
     init() {
         self.loadCoreData()
     }
@@ -19,9 +19,6 @@ final class AlarmViewModel : ObservableObject {
     func loadCoreData() {
         do {
             alarmData = try context.fetch(AlarmEntity.fetchRequest())
-            for alarm in alarmData {
-                print(alarm.scheduledTime)
-            }
         }
         catch {
             print("could not load data")
@@ -29,14 +26,12 @@ final class AlarmViewModel : ObservableObject {
     }
     
     @Published var alarm = Alarm(
-                                 title: "",
-                                 repeatAlarm: false,
-                                 wakeUpWisdom: false,
-                                 scheduledTime: Date.init(),
-                                 mission: Mission.quiz,
-                                 ringtone: Ringtone(
-                                    title: "Stormy Classical",
-                                    path: "harshness.mp3")) {
+        title: "",
+        repeatAlarm: false,
+        wakeUpWisdom: false,
+        scheduledTime: Date.init(),
+        mission: Missions.mission[0].type,
+        ringtone: Ringtones.ringtone[0].title) {
         didSet {
             self.calculateTimeToRing()
         }
@@ -49,13 +44,13 @@ final class AlarmViewModel : ObservableObject {
         timeToRing.day = diffComponents.day
         timeToRing.hour = diffComponents.hour
         timeToRing.minute = diffComponents.minute
-
     }
     
     func deleteAlarm(indexSet: IndexSet) {
-        //TODO disable Alarm from notification center
         guard let index = indexSet.first else {return}
-        context.delete(alarmData[index])
+        let alarmToDelete = alarmData[index]
+        handler.removeAlarm(alarmIdentifier: alarmToDelete.id!.uuidString)
+        context.delete(alarmToDelete)
         try! context.save()
         loadCoreData()
     }
@@ -75,10 +70,11 @@ final class AlarmViewModel : ObservableObject {
     func getAlarmEntityFromAlarmModel() -> AlarmEntity {
         let alarmEntity = AlarmEntity(context: context)
         alarmEntity.id = alarm.id!
-        alarmEntity.isActive = true //TODO add isActive property to Alarm Model
+        alarmEntity.isActive = true
+        //TODO add isActive property to Alarm Model
         alarmEntity.mission = alarm.mission.rawValue
         alarmEntity.repeatAlarm = alarm.repeatAlarm
-        alarmEntity.ringtone = alarm.ringtone.title
+        alarmEntity.ringtone = alarm.ringtone
         alarmEntity.wakeUpWisdom = alarm.wakeUpWisdom
         alarmEntity.scheduledTime = alarm.scheduledTime
         return alarmEntity

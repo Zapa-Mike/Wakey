@@ -10,6 +10,7 @@ import SwiftUI
 struct AlarmListView: View {
     @EnvironmentObject var navigateToQuiz : NavigateToQuiz
     @EnvironmentObject var viewModel : AlarmViewModel
+    @EnvironmentObject var quizViewModel : QuizViewModel
     @State var sss : Bool = true
     
     init() {
@@ -40,7 +41,9 @@ struct AlarmListView: View {
                     }
                     .onDelete(perform: viewModel.deleteAlarm)
             }
-                }
+            }.onAppear {
+                quizViewModel.reset()
+            }
                 .listStyle(PlainListStyle())
                 .navigationBarTitle("Alarm List")
                 .navigationBarItems(

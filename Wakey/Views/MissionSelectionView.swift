@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct MissionSelectionView: View {
+    @EnvironmentObject var viewModel : AlarmViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
-        Text("Select a Mission")
+        VStack{
+            List {
+                ForEach(Missions.mission, id: \.type) {mission in
+                    HStack {
+                        SubtitleView(title: mission.type.rawValue, subtitle: mission.description)
+                        Button(action: {
+                            viewModel.alarm.mission = mission.type
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            
+                        }
+                    }
+                }
+            }
+        }
+        .navigationBarTitle("Select a Mission")
     }
 }
 
