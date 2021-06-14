@@ -21,7 +21,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         // 1
         if
             let notification = notificationOption as? [String: AnyObject] {
-            navigateToQuiz.navigate = true
         }
         else {
             print("normally launched")
@@ -68,13 +67,28 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     didReceive response: UNNotificationResponse,
     withCompletionHandler completionHandler: @escaping () -> Void
   ) {
-    navigateToQuiz.navigate = true
     // 1
     print(response)
-    let userInfo = response.notification.request.content.userInfo
+    let alarmId = response.notification.request.content.userInfo["alarmId"] as! String?
+    print("ringingAlarmId:", alarmId)
+
+    let context = self.persistentContainer.viewContext
+    var alarms: [AlarmEntity] = []
+    alarms = try! context.fetch(AlarmEntity.fetchRequest())
     
-    
-    // 4
+    var currentAlarm = try! alarms.first(where: { $0.id == UUID(uuidString: alarmId as! String) })!
+
+    if currentAlarm.wakeUpWisdom {
+        navigateToQuiz.wakeUpWisdom = true
+    }
+    if currentAlarm.mission == MissionType.quiz.rawValue {
+        navigateToQuiz.navigateToQuiz = true
+    }
+    else {
+        navigateToQuiz.navigateToTyping = true
+    }
+    navigateToQuiz.ringtone = currentAlarm.ringtone!
+
     completionHandler()
   }
 }

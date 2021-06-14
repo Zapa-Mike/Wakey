@@ -23,7 +23,8 @@ struct AlarmListView: View {
                 if(viewModel.alarmData.count < 1) {
                     Text("You have no alarms").padding()
                 }
-                NavigationLink(destination: QuizMissionView(), isActive: $navigateToQuiz.navigate, label: {EmptyView()})
+                NavigationLink(destination: QuizMissionView(), isActive: $navigateToQuiz.navigateToQuiz, label: {EmptyView()})
+                NavigationLink(destination: TypingMissionView(), isActive: $navigateToQuiz.navigateToTyping, label: {EmptyView()})
                 List {
                     ForEach(viewModel.alarmData) {alarm in
                         HStack {
@@ -31,10 +32,17 @@ struct AlarmListView: View {
                                 Text(alarm.scheduledTime!, style: .time).font(.system(size: 25)).padding(5)
                                 Text(alarm.scheduledTime!, style: .date).font(.system(size: 10))
                             }
-                            Toggle("", isOn: $sss).font(.system(size: 23))
+                            Spacer()
+                            if alarm.mission! == MissionType.quiz.rawValue {
+                                Image("Square")
+                            }
+                            else {
+                                Image("Keyboard")
+                            }
+                           // Toggle("", isOn: $sss).font(.system(size: 23))
                             NavigationLink(
                                 destination:
-                                    CreateOrEditAlarmView()) {
+                                    CreateOrEditAlarmView(alarmId: alarm.id!)) {
                                 EmptyView()
                             }.hidden().frame(width: 0)
                         }

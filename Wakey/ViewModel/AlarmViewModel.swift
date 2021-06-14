@@ -21,12 +21,28 @@ final class AlarmViewModel : ObservableObject {
             alarmData = try context.fetch(AlarmEntity.fetchRequest())
         }
         catch {
-            print("could not load data")
+            fatalError("could not load data")
         }
     }
     
+    func setActiveAlarmById(id: UUID) {
+        if(alarm.id == id) {
+            return
+        }
+        let alarmEntity = getAlarmEntityById(id: id)
+        let alarm = self.getAlarmModelFromAlarmEntity(alarmEntity: alarmEntity)
+        self.alarm = alarm
+    }
+    
+    func getAlarmEntityById(id: UUID) -> AlarmEntity {
+        return try! alarmData.first(where: { $0.id == id })!
+    }
+    
+    func isScheduledTimeNow() -> Bool {
+        return timeToRing.day == 0 && timeToRing.hour == 0 && timeToRing.minute! < 1
+    }
+    
     @Published var alarm = Alarm(
-        title: "",
         repeatAlarm: false,
         wakeUpWisdom: false,
         scheduledTime: Date.init(),
@@ -62,14 +78,19 @@ final class AlarmViewModel : ObservableObject {
         loadCoreData()
     }
     
-    func saveAlarmInCoreData() {
-        let alarmEntity = getAlarmEntityFromAlarmModel()
+    func editAlarm(alarmId: UUID) {
+        var alarmEntity = getAlarmEntityById(id: alarmId)
+        if alarmEntity.scheduledTime != alarm.scheduledTime {
+            handler.rescheduleAlarm(alarm: alarm)
+        }
+        alarmEntity = editAlarmEntity(alarmEntity: alarmEntity)
         try! context.save()
+        loadCoreData()
     }
     
-    func getAlarmEntityFromAlarmModel() -> AlarmEntity {
-        let alarmEntity = AlarmEntity(context: context)
+    func editAlarmEntity(alarmEntity: AlarmEntity) -> AlarmEntity {
         alarmEntity.id = alarm.id!
+        alarmEntity.title = alarm.title
         alarmEntity.isActive = true
         //TODO add isActive property to Alarm Model
         alarmEntity.mission = alarm.mission.rawValue
@@ -79,4 +100,29 @@ final class AlarmViewModel : ObservableObject {
         alarmEntity.scheduledTime = alarm.scheduledTime
         return alarmEntity
     }
+    
+    func saveAlarmInCoreData() {
+        _ = getAlarmEntityFromAlarmModel()
+        try! context.save()
+    }
+    
+    func getAlarmEntityFromAlarmModel() -> AlarmEntity {
+        let alarmEntity = AlarmEntity(context: context)
+        alarmEntity.id = alarm.id!
+        alarmEntity.isActive = true
+        //TODO add isActive property to Alarm Model
+        alarmEntity.mission = alarm.mission.rawValue
+        alarmEntity.title = alarm.title
+        alarmEntity.repeatAlarm = alarm.repeatAlarm
+        alarmEntity.ringtone = alarm.ringtone
+        alarmEntity.wakeUpWisdom = alarm.wakeUpWisdom
+        alarmEntity.scheduledTime = alarm.scheduledTime
+        return alarmEntity
+    }
+    
+    func getAlarmModelFromAlarmEntity(alarmEntity: AlarmEntity) -> Alarm {
+        let alarmModel = Alarm(id: alarmEntity.id!, title: alarmEntity.title ?? "", repeatAlarm: alarmEntity.repeatAlarm, wakeUpWisdom: alarmEntity.wakeUpWisdom, scheduledTime: alarmEntity.scheduledTime!, mission: MissionType(rawValue: alarmEntity.mission!)!, ringtone: alarmEntity.ringtone!)
+        return alarmModel
+    }
+    
 }

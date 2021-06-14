@@ -8,5 +8,8 @@
 import Foundation
 
 final class NavigateToQuiz : ObservableObject {
-    @Published var navigate = false
+    @Published var navigateToQuiz = false
+    @Published var navigateToTyping = false
+    @Published var wakeUpWisdom = false
+    @Published var ringtone = "harshness.mp3"
 }

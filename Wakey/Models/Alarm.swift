@@ -9,7 +9,13 @@ import Foundation
 
 struct Alarm {
     var id: UUID?
-    var title: String
+    var title: String = "" {
+        didSet {
+            if title.count > 10 && oldValue.count <= 10 {
+                title = oldValue
+            }
+        }
+    }
     var repeatAlarm: Bool
     var wakeUpWisdom: Bool
     var scheduledTime: Date

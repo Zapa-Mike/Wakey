@@ -29,7 +29,7 @@ class AlarmHandler {
         content.title = "Wakey!"
         content.body = "Wake up, motherfucker!"
         content.categoryIdentifier = "alarm"
-        content.userInfo = ["mission": alarm.mission.rawValue]
+        content.userInfo = ["alarmId": alarm.id!.uuidString]
         
         content.sound = .criticalSoundNamed( UNNotificationSoundName(rawValue: resolvePath(alarm: alarm)))
         
@@ -57,5 +57,9 @@ class AlarmHandler {
            }
             self.center.removePendingNotificationRequests(withIdentifiers: identifiers)
         }
+    }
+    
+    func rescheduleAlarm(alarm: Alarm) {
+        self.scheduleAlarm(alarm: alarm)
     }
 }

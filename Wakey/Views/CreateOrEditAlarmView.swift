@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct CreateOrEditAlarmView: View {
+    @State var alarmId: UUID?
     @EnvironmentObject var viewModel : AlarmViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    func loadAlarm() {
+        if alarmId != nil {
+            viewModel.setActiveAlarmById(id: alarmId!)
+        }
+    }
+    
+    func resolveNavigationBarTitle() -> String {
+        var title: String = "Create Alarm"
+        if alarmId != nil {
+            title = "Edit Alarm"
+        }
+        return title
+    }
     
     var body: some View {
         VStack {
@@ -40,14 +55,19 @@ struct CreateOrEditAlarmView: View {
         
         Button(action: {
             DispatchQueue.main.async {
-                viewModel.addAlarm()
+                if self.alarmId == nil {
+                    viewModel.addAlarm()
+                }
+                else {
+                    viewModel.editAlarm(alarmId: self.alarmId!)
+                }
                 self.presentationMode.wrappedValue.dismiss()
             }
         }) {
             Text("Schedule alarm")
-        }
-        
-        .navigationBarTitle("Create Alarm")
+        }.disabled(viewModel.isScheduledTimeNow())
+        .onAppear(perform: loadAlarm)
+        .navigationBarTitle(self.resolveNavigationBarTitle())
     }
 }
 
