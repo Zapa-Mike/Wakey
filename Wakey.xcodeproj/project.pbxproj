@@ -12,7 +12,6 @@
 		3F10AF1D2672158A00A2F028 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10AF1C2672158A00A2F028 /* Mission.swift */; };
 		3F10AF232672169600A2F028 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10AF222672169600A2F028 /* AlarmViewModel.swift */; };
 		3F202604267615BB000553BE /* RIngtones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F202603267615BB000553BE /* RIngtones.swift */; };
-		3F2026092676196C000553BE /* veryloudairhorn1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F2026082676196C000553BE /* veryloudairhorn1.mp3 */; };
 		3F20261226762E66000553BE /* Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20261126762E66000553BE /* Missions.swift */; };
 		3F20261726763221000553BE /* SubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20261626763221000553BE /* SubtitleView.swift */; };
 		3F20261C2676349A000553BE /* Ringtone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20261B2676349A000553BE /* Ringtone.swift */; };
@@ -32,14 +31,13 @@
 		3F229717266D1F000097D156 /* DailyMotivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F229716266D1F000097D156 /* DailyMotivationView.swift */; };
 		3F22971C266D1F4C0097D156 /* TypingMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F22971B266D1F4C0097D156 /* TypingMissionView.swift */; };
 		3F229725266D202D0097D156 /* AlarmRIngingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F229724266D202D0097D156 /* AlarmRIngingView.swift */; };
+		3F2C256E2678BCC800625DED /* harshness.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F2C256D2678BCC800625DED /* harshness.mp3 */; };
+		3F2C25732678BCCE00625DED /* veryloudairhorn1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F2C25722678BCCE00625DED /* veryloudairhorn1.mp3 */; };
 		3F3864492673C2B700C9D285 /* Wakey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F3864472673C2B700C9D285 /* Wakey.xcdatamodeld */; };
 		3F3864962673E62600C9D285 /* AlarmEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3864942673E62600C9D285 /* AlarmEntity+CoreDataClass.swift */; };
 		3F3864972673E62600C9D285 /* AlarmEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3864952673E62600C9D285 /* AlarmEntity+CoreDataProperties.swift */; };
 		3FB292362677DE31002D97A4 /* TypingExcerpts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB292352677DE31002D97A4 /* TypingExcerpts.swift */; };
-		3FB2923B2677F892002D97A4 /* Q Square@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2923A2677F892002D97A4 /* Q Square@3x.png */; };
-		3FB292402677F898002D97A4 /* Keyboard@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2923F2677F898002D97A4 /* Keyboard@3x.png */; };
 		3FC03EF5266E99B2001CADD3 /* AlarmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC03EF4266E99B2001CADD3 /* AlarmHandler.swift */; };
-		3FC03F0E266EAD6F001CADD3 /* harshness.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FC03F0D266EAD6F001CADD3 /* harshness.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +63,6 @@
 		3F10AF1C2672158A00A2F028 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		3F10AF222672169600A2F028 /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
 		3F202603267615BB000553BE /* RIngtones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RIngtones.swift; sourceTree = "<group>"; };
-		3F2026082676196C000553BE /* veryloudairhorn1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = veryloudairhorn1.mp3; path = ../../veryloudairhorn1.mp3; sourceTree = "<group>"; };
 		3F20261126762E66000553BE /* Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missions.swift; sourceTree = "<group>"; };
 		3F20261626763221000553BE /* SubtitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleView.swift; sourceTree = "<group>"; };
 		3F20261B2676349A000553BE /* Ringtone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ringtone.swift; sourceTree = "<group>"; };
@@ -91,14 +88,13 @@
 		3F229716266D1F000097D156 /* DailyMotivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMotivationView.swift; sourceTree = "<group>"; };
 		3F22971B266D1F4C0097D156 /* TypingMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingMissionView.swift; sourceTree = "<group>"; };
 		3F229724266D202D0097D156 /* AlarmRIngingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRIngingView.swift; sourceTree = "<group>"; };
+		3F2C256D2678BCC800625DED /* harshness.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = harshness.mp3; sourceTree = "<group>"; };
+		3F2C25722678BCCE00625DED /* veryloudairhorn1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = veryloudairhorn1.mp3; sourceTree = "<group>"; };
 		3F3864482673C2B700C9D285 /* Wakey.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wakey.xcdatamodel; sourceTree = "<group>"; };
 		3F3864942673E62600C9D285 /* AlarmEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlarmEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3F3864952673E62600C9D285 /* AlarmEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlarmEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3FB292352677DE31002D97A4 /* TypingExcerpts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingExcerpts.swift; sourceTree = "<group>"; };
-		3FB2923A2677F892002D97A4 /* Q Square@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Q Square@3x.png"; path = "../../../Downloads/iOS Image 3/Q Square@3x.png"; sourceTree = "<group>"; };
-		3FB2923F2677F898002D97A4 /* Keyboard@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Keyboard@3x.png"; path = "../../../Downloads/iOS Image 2/Keyboard@3x.png"; sourceTree = "<group>"; };
 		3FC03EF4266E99B2001CADD3 /* AlarmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmHandler.swift; sourceTree = "<group>"; };
-		3FC03F0D266EAD6F001CADD3 /* harshness.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = harshness.mp3; path = ../../../Downloads/harshness.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +175,8 @@
 		3F2296C9266D1DA40097D156 /* Wakey */ = {
 			isa = PBXGroup;
 			children = (
+				3F2C25722678BCCE00625DED /* veryloudairhorn1.mp3 */,
+				3F2C256D2678BCC800625DED /* harshness.mp3 */,
 				3F20261026762E4D000553BE /* Constants */,
 				3F10AF27267219CC00A2F028 /* Handlers */,
 				3F10AF212672160300A2F028 /* ViewModel */,
@@ -186,10 +184,6 @@
 				3FC03EEF266E993E001CADD3 /* Models */,
 				3F2296CA266D1DA40097D156 /* WakeyApp.swift */,
 				3F2296CE266D1DA70097D156 /* Assets.xcassets */,
-				3FB2923F2677F898002D97A4 /* Keyboard@3x.png */,
-				3FB2923A2677F892002D97A4 /* Q Square@3x.png */,
-				3F2026082676196C000553BE /* veryloudairhorn1.mp3 */,
-				3FC03F0D266EAD6F001CADD3 /* harshness.mp3 */,
 				3F2296D3266D1DA70097D156 /* Info.plist */,
 				3F2296D0266D1DA70097D156 /* Preview Content */,
 				3F229724266D202D0097D156 /* AlarmRIngingView.swift */,
@@ -362,12 +356,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FB292402677F898002D97A4 /* Keyboard@3x.png in Resources */,
-				3F2026092676196C000553BE /* veryloudairhorn1.mp3 in Resources */,
+				3F2C25732678BCCE00625DED /* veryloudairhorn1.mp3 in Resources */,
 				3F2296D2266D1DA70097D156 /* Preview Assets.xcassets in Resources */,
 				3F2296CF266D1DA70097D156 /* Assets.xcassets in Resources */,
-				3FC03F0E266EAD6F001CADD3 /* harshness.mp3 in Resources */,
-				3FB2923B2677F892002D97A4 /* Q Square@3x.png in Resources */,
+				3F2C256E2678BCC800625DED /* harshness.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
