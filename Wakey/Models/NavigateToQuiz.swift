@@ -12,4 +12,5 @@ final class NavigateToQuiz : ObservableObject {
     @Published var navigateToTyping = false
     @Published var wakeUpWisdom = false
     @Published var ringtone = "harshness.mp3"
+    @Published var navigateToMotivation = false
 }

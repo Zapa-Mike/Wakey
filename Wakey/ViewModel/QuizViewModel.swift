@@ -8,8 +8,6 @@
 import Foundation
 
 final class QuizViewModel: ObservableObject {
-    let context = AppDelegate().persistentContainer.viewContext
-
     @Published var correctAnswersCounter = 0
     
     @Published var quizOver = false
@@ -27,54 +25,51 @@ final class QuizViewModel: ObservableObject {
         }
     }
     
-    @Published var alarmData: [AlarmEntity] = []
-    
-    init() {
-        self.loadCoreData()
-    }
-    
-    func loadCoreData() {
-        do {
-            alarmData = try context.fetch(AlarmEntity.fetchRequest())
-        }
-        catch {
-            fatalError("could not load data")
-        }
-    }
-    
     func reset() {
         correctAnswersCounter = 0
         quizOver = false
         activeQuestion = QuizQuestions.question[0]
+        activeSentence = Sentences.sentence[0]
         index = 0
+        
+        print("index: ", index)
+        print("correctAnsCounter:", correctAnswersCounter)
+        print("active Question: ", activeQuestion.text)
     }
     
     func evaluateAnswer(answerIndex: Int) {
         if answerIndex == activeQuestion.trueOptionIndex {
-            correctAnswersCounter += 1
-            if correctAnswersCounter > 2 {
-                quizOver = true
-            }
+            correctAnswersCounter = correctAnswersCounter + 1
         }
-        if index == QuizQuestions.question.count - 1 {
-            index = 0
+        
+        if correctAnswersCounter > 2 {
+            quizOver = true //ends the mission and pops to the alarm list
         }
         else {
-            index += 1
+            nextQuestion()
         }
+        
+        print("index: ", index)
+        print("correctAnsCounter:", correctAnswersCounter)
+        print("active Question: ", activeQuestion.text)
+    }
+    
+    func nextQuestion() {
+        index = (index + 1) % QuizQuestions.question.count
     }
     
     func evaluateTypedText() {
         if typedText == activeSentence {
-            index += 1
+            nextExcerpt()
             typedText = ""
-            correctAnswersCounter += 1
+            correctAnswersCounter = correctAnswersCounter + 1
             if correctAnswersCounter > 2 {
                 quizOver = true
             }
         }
-        if index == Sentences.sentence.count - 1 {
-            index = 0
-        }
+    }
+    
+    func nextExcerpt() {
+        index = (index + 1) % Sentences.sentence.count
     }
 }

@@ -14,7 +14,7 @@ struct TypingMissionView: View {
     @State var player: AVAudioPlayer?
     
     func playSound() {
-        guard let url = Bundle.main.url(forResource: "harshness", withExtension: "mp3") else { return }
+        guard let url = Bundle.main.url(forResource: "harshness-full", withExtension: "mp3") else { return }
         
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
@@ -46,9 +46,9 @@ struct TypingMissionView: View {
                 Text("\(viewModel.correctAnswersCounter) / 3 ").padding(20)
             }
             Spacer()
-            Text(viewModel.activeSentence)
+            Text(viewModel.activeSentence).animation(.easeIn)
             Spacer()
-            TextField("Type the text above", text: binding)
+            TextField("Type the text above", text: binding).multilineTextAlignment(.center).padding(20)
         }.onAppear(perform: playSound)
          .navigationTitle("Typing")
          .navigationBarBackButtonHidden(true)

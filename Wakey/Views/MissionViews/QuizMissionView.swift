@@ -10,12 +10,17 @@ import AVFoundation
 
 struct QuizMissionView: View {
    @EnvironmentObject var viewModel : QuizViewModel
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+   @EnvironmentObject var navigateToQuiz : NavigateToQuiz 
+   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
    @State var player: AVAudioPlayer?
     
    func playSound() {
-        guard let url = Bundle.main.url(forResource: "harshness", withExtension: "mp3") else { return }
+        if viewModel.quizOver {
+            self.presentationMode.wrappedValue.dismiss()
+            return
+        }
+        guard let url = Bundle.main.url(forResource: "harshness-full", withExtension: "mp3") else { return }
         
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
@@ -37,12 +42,13 @@ struct QuizMissionView: View {
     
     var body: some View {
         VStack(spacing: 8.0) {
+            NavigationLink(destination: WakeupMotivationView(), isActive: $navigateToQuiz.navigateToMotivation, label: {EmptyView()})
             HStack {
                 Text("Answer 3 Questions correctly to dismiss the alarm!").padding(20)
                 Text("\(viewModel.correctAnswersCounter) / 3 ").padding(20)
             }
             Spacer()
-            Text(viewModel.activeQuestion.text)
+            Text(viewModel.activeQuestion.text).animation(.easeIn)
             Spacer()
             if viewModel.activeQuestion.questionType == QuestionType.TrueFalse {
                 HStack{
@@ -98,7 +104,12 @@ struct QuizMissionView: View {
         viewModel.evaluateAnswer(answerIndex: answerIndex)
         if viewModel.quizOver {
             player?.stop()
-            self.presentationMode.wrappedValue.dismiss()
+            if navigateToQuiz.wakeUpWisdom {
+                navigateToQuiz.navigateToMotivation = true
+            }
+            else {
+                self.presentationMode.wrappedValue.dismiss()
+            }
         }
     }
 }

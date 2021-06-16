@@ -39,7 +39,7 @@ struct AlarmListView: View {
                             else {
                                 Image("Keyboard")
                             }
-                           // Toggle("", isOn: $sss).font(.system(size: 23))
+                            // Toggle("", isOn: $sss).font(.system(size: 23))
                             NavigationLink(
                                 destination:
                                     CreateOrEditAlarmView(alarmId: alarm.id!)) {
@@ -48,24 +48,22 @@ struct AlarmListView: View {
                         }
                     }
                     .onDelete(perform: viewModel.deleteAlarm)
+                }.onAppear(perform: quizViewModel.reset)
             }
-            }.onAppear {
-                quizViewModel.reset()
-            }
-                .listStyle(PlainListStyle())
-                .navigationBarTitle("Alarm List")
-                .navigationBarItems(
-                    leading:
-                        EditButton()
-                    ,
-                    trailing:
-                        NavigationLink(
-                            destination: CreateOrEditAlarmView()) {
-                            Image(systemName: "plus")
-                        }
-                )
-            }
+            .listStyle(PlainListStyle())
+            .navigationBarTitle("Alarm List")
+            .navigationBarItems(
+                leading:
+                    EditButton()
+                ,
+                trailing:
+                    NavigationLink(
+                        destination: CreateOrEditAlarmView()) {
+                        Image(systemName: "plus")
+                    }
+            )
         }
+    }
     func askForPermission() {
         AlarmHandler.registerPermission()
     }
