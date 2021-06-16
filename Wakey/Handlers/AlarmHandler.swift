@@ -27,7 +27,7 @@ class AlarmHandler {
     func scheduleAlarm(alarm: Alarm) {
         let content = UNMutableNotificationContent()
         content.title = "Wakey!"
-        content.body = "Wake up, motherfucker!"
+        content.body = "Wake up, sir!"
         content.categoryIdentifier = "alarm"
         content.userInfo = ["alarmId": alarm.id!.uuidString]
         
