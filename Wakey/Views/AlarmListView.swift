@@ -29,9 +29,11 @@ struct AlarmListView: View {
                     ForEach(viewModel.alarmData) {alarm in
                         HStack {
                             VStack {
-                                Text(alarm.scheduledTime!, style: .time).font(.system(size: 25)).padding(5)
+                                Text(alarm.scheduledTime!, style: .time).font(.system(size: 25))
                                 Text(alarm.scheduledTime!, style: .date).font(.system(size: 10))
                             }
+                            Spacer()
+                            Text(alarm.title!).font(.title)
                             Spacer()
                             if alarm.mission! == MissionType.quiz.rawValue {
                                 Image("Square")
