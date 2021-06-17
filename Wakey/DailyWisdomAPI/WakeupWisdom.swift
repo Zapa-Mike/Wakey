@@ -25,7 +25,7 @@ struct Contents: Codable {
 // MARK: - Quote
 struct Quote: Codable {
     let quote, length, author: String
-    let tags: [String: String]
+    let tags: [String]
     let category, language, date: String
     let permalink: String
     let id: String
