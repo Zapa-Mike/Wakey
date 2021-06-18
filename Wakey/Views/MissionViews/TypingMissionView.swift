@@ -10,10 +10,16 @@ import AVFoundation
 
 struct TypingMissionView: View {
     @EnvironmentObject var viewModel : QuizViewModel
+    @EnvironmentObject var navigateToQuiz : NavigateToQuiz
+
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var player: AVAudioPlayer?
     
     func playSound() {
+        if viewModel.quizOver {
+            self.presentationMode.wrappedValue.dismiss()
+            return
+        }
         guard let url = Bundle.main.url(forResource: "harshness-full", withExtension: "mp3") else { return }
         
         do {
@@ -41,6 +47,7 @@ struct TypingMissionView: View {
             evaluateText()
         })
         VStack(spacing: 8.0) {
+            NavigationLink(destination: WakeupMotivationView(), isActive: $navigateToQuiz.navigateToMotivation, label: {EmptyView()})
             HStack {
                 Text("Type 3 excerpts out correctly to dismiss the alarm!").padding(20)
                 Text("\(viewModel.correctAnswersCounter) / 3 ").padding(20)
@@ -58,7 +65,12 @@ struct TypingMissionView: View {
         viewModel.evaluateTypedText()
         if viewModel.quizOver {
             player?.stop()
-            self.presentationMode.wrappedValue.dismiss()
+            if navigateToQuiz.wakeUpWisdom {
+                navigateToQuiz.navigateToMotivation = true
+            }
+            else {
+                self.presentationMode.wrappedValue.dismiss()
+            }
         }
     }
 }

@@ -41,7 +41,7 @@ struct WakeupMotivationView: View {
                     .font(.system(size: 20, weight: .bold, design: .default))
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
-                    .lineLimit(4)
+                    .lineLimit(8)
                     .frame(width: 400)
                     .alert(isPresented: $showError, content: {
                         Alert(title: Text("Error"),
